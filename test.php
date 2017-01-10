@@ -6,7 +6,7 @@
     <body>
         <div class="container-fluid">
             <div class="container">
-                <form class="form-horizontal">
+                <form class="form-horizontal" id="form_test">
                     <div id="commun">
                         <h2>Commun</h2>
                         <div class="form-group">
@@ -22,7 +22,7 @@
                         <h2>Musee</h2>
                         <div class="form-group">
                             <label for="musee_adresse" >Adresse</label>
-                            <input type="text" id="adresse" class="form-control">    
+                            <input type="text" id="musee_adresse" class="form-control">    
                         </div>
                         <div class="form-group">
                             <label for="musee_cp" >Code postal</label>
@@ -56,9 +56,24 @@
             
         </div>
         <script>
-            function ajax(){
-                
-            }
+            jQuery("#btn_validation").click(function(){
+               var form_data = {
+                   'nom'                    :jQuery("input[name=nom]").val(),
+                   'commune'                :jQuery("input[name=commune]").val(),
+                   'musee_adresse'          :jQuery("input[name=musee_adresse]").val(),
+                   'musee_cp'               :jQuery("input[name=musee_cp]").val(),
+                   'musee_telephone'        :jQuery("input[name=musee_telephone]").val(),
+                   'monument_departement'   :jQuery("input[name=monument_departement]").val(),
+                   'monument_sciecle'       :jQuery("input[name=monument_sciecle]").val(),
+                   'monument_categorie'     :jQuery("input[name=monument_categorie]").val()
+               };
+               jQuery.ajax({
+                  type: 'POST',
+                  url: "Requete.php",
+                  data: form_data,
+                  dataType: 'json'
+               }); 
+            });
         </script>
     </body>
 </html>
