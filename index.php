@@ -11,7 +11,7 @@
   		<div class="container-fluid">
 			<div class="row row-head"> <!-- Head [MD 3-6-3 SM/XS 12] -->
 				<!-- 1ère colonne Desktop / Mobile -->
-				<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="col1">
 						<div class="col-md-11 col-sm-10 col-xs-10 title">
 							<h1>Que cherchez-vous&nbsp;?</h1>
@@ -22,12 +22,12 @@
 					</div>
 				</div>
 				<!-- 2ème colonne Desktop -->
-				<div class="col-md-6 col-sm-12 col-xs-12">
+				<div class="col-md-5 col-sm-12 col-xs-12">
 					<div class="line"></div>
 					<div class="user-search">
 						<div class="top">
 							<i class="fa fa-university" aria-hidden="true"></i>
-							<p>Ce que l'utilisateur a saisit, statique</p>
+							<p>Le musée de la Choucroute Garnie, Montbéliard, 25200, Voila MDR LOL xd, euh ouais hein</p>
 						</div>
 						<div class="bot">
 							<i class="fa fa-fort-awesome" aria-hidden="true"></i>
@@ -57,6 +57,9 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<div class="row row-form">
+
 			</div>
 		</div>
   	</body>

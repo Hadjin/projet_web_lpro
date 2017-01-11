@@ -31,7 +31,7 @@ div.row-head {
 	background-color: #333333;
 }
 
-div.col-md-3, div.col-md-6 {
+div.col-md-3, div.col-md-4, div.col-md-5 {
 	padding: 0;
 }
 
@@ -73,16 +73,27 @@ div.title, div.icon {
 div.user-search {
 	display: inline-block;
 	vertical-align: middle; /* Pourquoi le trait n'était pas centré sans ça ? */
-	padding: 20px 0;
+	padding: 20px 10px 10px 0;
+	width: 93%;
+}
+
+div.top {
+	margin: 0 0 10px 0;
 }
 
 div.top, div.bot {
-	height: 33px;
+	height: 32px;
 }
 
 div.top > i, div.bot > i {
 	font-size: 26px;
 	width: 50px;
+}
+
+div.top > p, div.bot > p {
+	text-align: left;
+	vertical-align: top;
+	width: 85%;
 }
 
 div.top > i, div.top > p, div.bot > i, div.bot > p {
@@ -183,7 +194,7 @@ div.active {
 /* ----- 2EME LIGNE ----- */
 	div.user-search {
 		display: block;
-		padding: 15px 0 15px 30px;
+		padding: 15px 0 10px 30px;
 	}
 
 /* ----- 3EME LIGNE ----- */
