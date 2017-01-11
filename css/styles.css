@@ -1,0 +1,251 @@
+/*
+Codes couleur :
+Gris clair : #F2F2F2;
+Gris foncé : #333333;
+Rouge brique : #C1272D;
+Bleu : #0071BC;
+
+Fonts :
+'Lobster Two' 400;
+'Source Sans Pro' 300, 600;
+*/
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two|Source+Sans+Pro:300,600');
+
+/* ----- STYLES PAR DÉFAUT [DESKTOP] ----- */
+/* ----- COMMUN ----- */
+body {
+	font-size: 14px;
+	line-height: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	margin: 0;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
+
+div.row-head {
+	color: #F2F2F2;
+	background-color: #333333;
+}
+
+div.col-md-3, div.col-md-6 {
+	padding: 0;
+}
+
+div.line {
+	display: inline-block;
+	width: 1px;
+	height: 70px;
+	vertical-align: top;
+	background-color: #F2F2F2;
+	margin: 20px 5% 0 0;
+}
+
+/* ----- 1ERE COLONNE / DESKTOP ----- */
+div.col1 {
+	display: table;
+	margin: 0 auto;
+}
+
+div.title {
+	display: inline-block;
+}
+
+div.title > h1 {
+	font-size: 26px;
+	font-family: 'Lobster Two', cursive;
+	margin: 40px 0 0 0;
+}
+div.icon {
+	display: inline-block;
+	font-size: 2em;
+	margin: 35px 0 0 0;
+}
+
+div.title, div.icon {
+	padding: 0;
+}
+
+/* ----- 2EME COLONNE / DESKTOP ----- */
+div.user-search {
+	display: inline-block;
+	vertical-align: middle; /* Pourquoi le trait n'était pas centré sans ça ? */
+	padding: 20px 0;
+}
+
+div.top, div.bot {
+	height: 33px;
+}
+
+div.top > i, div.bot > i {
+	font-size: 26px;
+	width: 50px;
+}
+
+div.top > i, div.top > p, div.bot > i, div.bot > p {
+	display: inline-block;
+}
+
+/* ----- 3EME COLONNE / DESKTOP ----- */
+div.block {
+	display: inline-block;
+	width: 90%;
+	margin: 0 auto;
+}
+
+div.eye-block, div.button-museum, div.button-monument {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+}
+
+div.eye-block, div.button-museum, div.button-monument {
+	padding: 15px 0;
+}
+
+div.museum, div.monument {
+	width: 50px;
+	height: 50px;
+	border: solid #F2F2F2 1px;
+	border-radius: 5px;
+	margin: 0 auto 10px auto;
+}
+
+div.eye-block > i {
+	font-size: 2.5em;
+	margin: 0 0 10px 0;
+}
+
+div.museum > i, div.monument > i {
+	font-size: 2em;
+	line-height: 50px;
+}
+
+div.museum:hover, div.monument:hover {
+	cursor: pointer;
+}
+/* BOUTON ACTIF */
+div.active {
+	border: solid #C1272D 1px;
+	color: #C1272D;
+}
+
+/* ----- MEDIA QUERIES ----- */
+
+/* ECRAN < 991 // TABLETTE // MOBILE */ 
+@media (max-width: 991px) {
+
+	div.row-head {
+		display: block;
+		color: #333333;
+		background-color: initial;
+	}
+
+	div.col-sm-12 {
+		padding: 0;
+	}
+
+	div.line {
+		display: none;
+	}
+
+/* ----- 1ERE LIGNE ----- */
+	div.col1 {
+		margin: 0;
+		display: block;
+	}
+
+	div.title > h1 {
+		margin: 0;
+		padding: 5px 0;
+		font-size: 32px;
+		text-align: center;
+	}
+
+	div.icon {
+		display: inline-block;
+		margin: 0;
+		color: #F2F2F2;
+		background-color: #333333;
+		font-size: 45px;
+		text-align: center;
+		border-bottom: solid #C1272D 5px;
+		cursor: pointer;
+	}
+
+	div.title, div.icon {
+		padding: 15px 0;
+	}
+
+/* ----- 2EME LIGNE ----- */
+	div.user-search {
+		display: block;
+		padding: 15px 0 15px 30px;
+	}
+
+/* ----- 3EME LIGNE ----- */
+	div.block {
+		width: 100%;
+		border-top: solid #C1272D 5px;
+		color: #F2F2F2;
+		background-color: #333333;
+	}
+
+	div.eye-block {
+		color: #F2F2F2;
+		background-color: #333333;
+		float: right;
+	}
+
+	div.eye-block > p {
+		font-size: 18px;
+		line-height: 20px;
+	}
+
+	div.button-museum, div.button-monument {
+		padding: 10px 0 0 0;
+	}
+
+	div.button-monument > p {
+		margin: 10px 0 0 18%;
+		width: 72px;
+		font-size: 20px;
+	}
+
+	div.button-museum > p {
+		margin: 10px 0 0 60%;
+		width: 72px;
+		font-size: 20px;
+	}
+
+	div.museum {
+		margin: 0 0 0 60%;
+	}
+
+	div.monument {
+		margin: 0 0 0 20%;
+	}
+
+	div.museum, div.monument {
+		border: none;
+		width: 72px;
+		height: 72px;
+	}
+
+	div.museum > i, div.monument > i {
+		font-size: 72px;
+		line-height: 74px;
+		opacity: 0.2;
+	}
+
+	/* BOUTON ACTIF */
+	div.active {
+		color: #C1272D;
+		opacity: 1;
+	}
+
+}
+
