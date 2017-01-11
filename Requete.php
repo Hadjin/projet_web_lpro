@@ -9,9 +9,6 @@
     //http://stackoverflow.com/questions/19767894/warning-do-not-access-superglobal-post-array-directly-on-netbeans-7-4-for-ph
     //Fields for monuments
 
-    //filter_input(INPUT_POST, 'var_name') instead of $_POST['var_name']
-    //filter_input_array(INPUT_POST) instead of $_POST
-
     $first = true;
     $sql_musee = "SELECT * FROM musees ";
 
@@ -83,15 +80,13 @@
 
 
 
-
+    
     $sql_musee = $sql_musee.";";
-    //$resultats_musee=$connexion->query($sql_musee);
-    //$resultats_musee->setFetchMode(PDO::FETCH_OBJ);
-    //echo $sql_musee;
+    echo $sql_musee."|";
+    
     $musee_statement = $connexion->prepare($sql_musee);
     $musee_statement->execute();
-    $musee_result = $musee_statement->fetchAll(PDO::FETCH_ASSOC); 
-    //print_r($musee_result);
+    $musee_result = $musee_statement->fetchAll(PDO::FETCH_ASSOC);
     $json_musee = json_encode($musee_result);
 
 
@@ -165,12 +160,12 @@
     }
     
     $sql_monument = $sql_monument.";";
-    //echo $sql_monument;
+    echo $sql_monument."|";
     
     $monument_statement = $connexion->prepare($sql_monument);
     $monument_statement->execute();
     $monument_result = $monument_statement->fetchAll(PDO::FETCH_ASSOC);
-    //print_r($monument_result);
+    
     $json_monument = json_encode($monument_result);
 
     $result = Array("musees"=>$json_musee,"monuments"=>$json_monument);

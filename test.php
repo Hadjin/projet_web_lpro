@@ -52,13 +52,22 @@
                 </form>
             </div>
         </div>
-        <div id="result">
+        
+        <h2>Result musee</h2>
+        <div id="result_musee">
             
         </div>
+        
+        <h2>Result monument</h2>
+        <div id="result_monument">
+            
+        </div>
+        
         <script>
             jQuery("#btn_validation").click(function(e){
                
-               var donnees = jQuery(this).serialize();
+               var donnees = jQuery("#form_test").serialize();
+               alert(donnees);
                jQuery.ajax({
                     url: "Requete.php",
                     type: 'POST',
@@ -66,6 +75,7 @@
                     //dataType: 'json',
                     success: function (data, textStatus, jqXHR) {
                         jQuery("#result").text(data);
+                        //add print result en parsant json
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         jQuery("#result").text("erreur");
