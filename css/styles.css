@@ -44,7 +44,7 @@ div.line {
 	margin: 20px 5% 0 0;
 }
 
-/* ----- 1ERE COLONNE / DESKTOP ----- */
+/* ----- 1ERE COLONNE / ROW-HEAD ----- */
 div.col1 {
 	display: table;
 	margin: 0 auto;
@@ -69,10 +69,10 @@ div.title, div.icon {
 	padding: 0;
 }
 
-/* ----- 2EME COLONNE / DESKTOP ----- */
+/* ----- 2EME COLONNE / ROW-HEAD ----- */
 div.user-search {
 	display: inline-block;
-	vertical-align: middle; /* Pourquoi le trait n'était pas centré sans ça ? */
+	vertical-align: middle;
 	padding: 20px 10px 10px 0;
 	width: 93%;
 }
@@ -100,7 +100,7 @@ div.top > i, div.top > p, div.bot > i, div.bot > p {
 	display: inline-block;
 }
 
-/* ----- 3EME COLONNE / DESKTOP ----- */
+/* ----- 3EME COLONNE / ROW-HEAD ----- */
 div.block {
 	display: inline-block;
 	width: 90%;
@@ -142,6 +142,73 @@ div.museum:hover, div.monument:hover {
 div.active {
 	border: solid #C1272D 1px;
 	color: #C1272D;
+}
+
+/* ----- // FORMULAIRE // ----- */
+div.formulaire {
+	color: #F2F2F2;
+	background-color: rgba(0,0,0,0.5);
+}
+
+div.desc {
+	padding: 15px 5%;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: center;
+}
+
+div.form-commun {
+	margin: 0 0 10px 0;
+}
+div.form-musee {
+	border-right: solid #F2F2F2 1px;
+}
+div.form-monument {
+	border-left: solid #F2F2F2 1px;
+}
+div.form-musee, div.form-monument {
+	margin-bottom: 20px;
+}
+
+div.form-musee > h2, div.form-monument > h2 {
+	font-family: 'Source Sans Pro';
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 26px;
+	text-align: center;
+	margin: 0 0 20 0;
+}
+
+div.form-group > label {
+	font-family: 'Source Sans Pro';
+	font-weight: 300;
+	font-size: 16px;
+	line-height: 18px;
+	width: 100%;
+	text-align: center;
+}
+
+button#btn_validation {
+	width: 60px;
+	height: 40px;
+	border: none;
+	border-top: solid #C1272D 2px;
+	border-bottom: solid #C1272D 2px;
+	background-color: transparent;
+	transition-duration: 0.3s;
+	transition-property: all;
+}
+button#btn_validation:hover {
+	background-color: #C1272D;
+}
+button#btn_validation:hover > span {
+	opacity: 0.2;
+}
+
+button#btn_validation > span {
+	font-size: 24px;
+	line-height: 26px;
+	top: 0;
 }
 
 /* ----- MEDIA QUERIES ----- */
@@ -253,7 +320,7 @@ div.active {
 	}
 
 	/* BOUTON ACTIF */
-	div.active {
+	div.active > i {
 		color: #C1272D;
 		opacity: 1;
 	}

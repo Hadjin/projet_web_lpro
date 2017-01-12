@@ -29,7 +29,7 @@
                             <input type="text" name="musee_cp" id="musee_cp" class="form-control">    
                         </div>
                         <div class="form-group">
-                            <label for="musee_telephone" >Telephone</label>
+                            <label for="musee_telephone" >Téléphone</label>
                             <input type="text" name="musee_telephone" id="musee_telephone" class="form-control">    
                         </div>
                     </div>
@@ -40,11 +40,11 @@
                             <input type="text" name="monument_departement" id="monument_departement" class="form-control">    
                         </div>
                         <div class="form-group">
-                            <label for="monument_sciecle" >Siecle</label>
+                            <label for="monument_sciecle" >Siècle</label>
                             <input type="text" name="monument_sciecle" id="monument_sciecle" class="form-control">    
                         </div>
                         <div class="form-group">
-                            <label for="monument_categorie" >Departement</label>
+                            <label for="monument_categorie" >Catégorie</label>
                             <input type="text" name="monument_categorie" id="monument_categorie" class="form-control">    
                         </div>
                     </div>
