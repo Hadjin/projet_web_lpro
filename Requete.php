@@ -82,7 +82,7 @@
 
     
     $sql_musee = $sql_musee.";";
-    echo $sql_musee."|";
+    //echo $sql_musee."|";
     
     $musee_statement = $connexion->prepare($sql_musee);
     $musee_statement->execute();
@@ -160,7 +160,7 @@
     }
     
     $sql_monument = $sql_monument.";";
-    echo $sql_monument."|";
+    //echo $sql_monument."|";
     
     $monument_statement = $connexion->prepare($sql_monument);
     $monument_statement->execute();

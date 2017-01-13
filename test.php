@@ -52,7 +52,10 @@
                 </form>
             </div>
         </div>
-        
+        <h2>ALL</h2>
+        <div id="All">
+            
+        </div>
         <h2>Result musee</h2>
         <div id="result_musee">
             
@@ -65,26 +68,41 @@
         
         <script>
             jQuery("#btn_validation").click(function(e){
-               
                var donnees = jQuery("#form_test").serialize();
-               alert(donnees);
                jQuery.ajax({
                     url: "Requete.php",
                     type: 'POST',
                     data: donnees,
-                    //dataType: 'json',
                     success: function (data, textStatus, jqXHR) {
-                        jQuery("#result").text(data);
-                        //add print result en parsant json
+                        display_Result(data);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        jQuery("#result").text("erreur");
+                        jQuery("#All").text("erreur");
                     },
                     complete: function (jqXHR, textStatus ) {
-                        alert("fin");
+                        
                     }
                }); 
             });
+            
+            function display_Result(data){
+                //console.log(data);
+                var parsed_data = jQuery.parseJSON(data);
+                var html_musees = "";
+                //console.log(parsed_data.musees+"\n");
+                var musees = jQuery.parseJSON(parsed_data['musees']);
+                //console.log(data);
+                //console.log(musees);
+                jQuery.each(musees, function(key,value){
+                    html_musees +"<p>";
+                    jQuery.each(value, function (k, v){
+                        html_musees += k +": "+v+"<br/>"; 
+                    });
+                    html_musees += "</p><br/><br/>";
+                });
+                jQuery("#result_musee").html(html_musees);
+            }
+            
         </script>
     </body>
 </html>
