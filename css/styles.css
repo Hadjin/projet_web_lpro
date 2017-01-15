@@ -18,6 +18,7 @@ body {
 	line-height: 16px;
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
 
 p {
@@ -52,6 +53,11 @@ div.col1 {
 	cursor: pointer;
 }
 
+div.col1:hover > div.icon > span {
+	transform: rotateZ(90deg);
+	transition-duration: 0.3s;
+}
+
 div.title {
 	display: inline-block;
 }
@@ -65,6 +71,14 @@ div.icon {
 	display: inline-block;
 	font-size: 2em;
 	margin: 35px 0 0 0;
+}
+
+div.icon > span.glyphicon-remove {
+	display: none;
+}
+
+div.icon > span {
+	transition-duration: 0.3s;
 }
 
 div.title, div.icon {
@@ -257,10 +271,6 @@ button#btn_validation > span.go {
 		background-color: initial;
 	}
 
-	div.col-sm-12 {
-		padding: 0;
-	}
-
 	div.line {
 		display: none;
 	}
@@ -269,6 +279,15 @@ button#btn_validation > span.go {
 	div.col1 {
 		margin: 0;
 		display: block;
+	}
+
+	div.title {
+		cursor: default;
+	}
+
+	div.col1:hover > div.icon > span {
+		transform: none;
+		transition-property: color; /* Pour anéantir l'animation Hover du desktop */
 	}
 
 	div.title > h1 {
@@ -287,6 +306,32 @@ button#btn_validation > span.go {
 		text-align: center;
 		border-bottom: solid #C1272D 5px;
 		cursor: pointer;
+		z-index: 1;
+	}
+
+	div.col1 > div.icon > span.glyphicon-search {
+		opacity: 0;
+		transform: rotateY(180deg);
+		transition-property: transform;
+		transition-duration: 0.3s;
+	}
+
+	div.col1 > div.icon > span.glyphicon-remove {
+		display: block;
+		position: absolute;
+		top: 15px;
+		width: 100%;
+		opacity: 0;
+		transform: rotateY(180deg);
+		transition-property: transform;
+		transition-duration: 0.3s;
+	}
+	/* Pour switch Loupe/Croix */
+	div.col1 > div.icon > span.visible {
+		opacity: 1;
+		transform: rotateY(0deg);
+		transition-property: transform;
+		transition-duration: 0.3s;
 	}
 
 	div.title, div.icon {
@@ -351,14 +396,54 @@ button#btn_validation > span.go {
 	div.museum > i, div.monument > i {
 		font-size: 72px;
 		line-height: 74px;
+		color: #F2F2F2;
 		opacity: 0.2;
+		transition-property: all;
+		transition-duration: 0.3s;
 	}
 
 	/* BOUTON ACTIF */
 	div.active > i {
 		color: #C1272D;
 		opacity: 1;
+		transition-property: all;
+		transition-duration: 0.3s;
+	}
+
+	/* ----- // FORMULAIRE // ----- */
+
+	div.formulaire {
+		background-color: #333333;
+		top: -300px;
+		left: 100%;
+		z-index: 0;
+	}
+
+	div.desc > p {
+		height: 40px;
+		margin : 0 15% 0 0;
+	}
+
+	div.form-commun {
+		padding: 0 100px;
+	}
+
+	div.deployM {
+		left: 0;
+		transition-property: left;
+		transition-duration: 1s;
 	}
 
 }
 
+/* ----- AJUSTEMENT FORMULAIRE ----- */
+@media (max-width: 490px) {
+
+	div.formulaire {
+		top: -320px;
+	}
+
+	div.form-commun {
+		padding: 0 50px;
+	}
+}

@@ -12,12 +12,13 @@
 			<div class="row row-head"> <!-- Head [MD 3-6-3 SM/XS 12] -->
 				<!-- 1ère colonne Desktop / Mobile -->
 				<div class="col-md-4 col-sm-12 col-xs-12">
-					<div class="col1" onclick="deployForm();">
+					<div id="col1" class="col1">
 						<div class="col-md-11 col-sm-10 col-xs-10 title">
 							<h1>Que cherchez-vous&nbsp;?</h1>
 						</div>
-						<div class="col-md-1 col-sm-2 col-xs-2 icon">
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+						<div id="icon" class="col-md-1 col-sm-2 col-xs-2 icon">
+							<span id="loupe" class="glyphicon glyphicon-search visible" aria-hidden="true"></span>
+							<span id="croix" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 						</div>
 					</div>
 				</div>
@@ -113,7 +114,7 @@
 	                        </div>
 
 	                    </div>
-	                    <button type="button" id="btn_validation" class="center-block" onclick="deployForm();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="go">GO</span></button>  
+	                    <button type="button" id="btn_validation" class="center-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="go">GO</span></button>  
 	                </form>
 				</div>
 			</div>
@@ -132,7 +133,20 @@
   			}
   		}
 
-  		// Fonction pour déployer ou dissimuler le formulaire de recherche
+  		var largeur = window.innerWidth; // Taille de la fenêtre
+  		// En fonction de la taille de la fenêtre au chargement de la page, on ajoute des écouteurs d'événement différents pour le déploiement du formulaire
+  		if (largeur >= 992) {
+  			document.getElementById("col1").addEventListener("click", deployForm);
+  			document.getElementById("btn_validation").addEventListener("click", deployForm);
+  		}else{
+  			document.getElementById("icon").addEventListener("click", deployFormMobile);
+  			document.getElementById("btn_validation").addEventListener("click", deployFormMobile);
+  			// Juste pour faire un effet au niveau de la loupe (transforme en croix)
+  			document.getElementById("icon").addEventListener("click", visible);
+  			document.getElementById("btn_validation").addEventListener("click", visible);
+  		}
+
+  		// Fonction pour déployer ou dissimuler le formulaire de recherche Desktop
   		function deployForm() {
   			var cible = document.getElementById("deploy");
   			var deploy = cible.classList.contains('deploy');
@@ -145,6 +159,33 @@
   				// Temporisation jusqu'à la fin de l'animation
   				setTimeout(function() { cible.style.zIndex = 0; }, 900);
   				cible.classList.remove('deploy');
+  			}
+  		}
+  		// Fonction pour déployer ou dissimuler le formulaire de recherche Mobile
+  		function deployFormMobile() {
+  			var cible = document.getElementById("deploy");
+  			var deploy = cible.classList.contains('deployM');
+
+  			if (deploy == false) { 	
+  				cible.classList.add('deployM');
+  			}else{
+  				cible.classList.remove('deployM');
+  			}
+  		}
+  		// Fonction pour afficher ou masquer la loupe/croix
+  		function visible() {
+  			var loupe = document.getElementById("loupe");
+  			var croix = document.getElementById("croix");
+
+  			var visibleL = loupe.classList.contains('visible');
+  			var visibleC = croix.classList.contains('visible');
+
+  			if (visibleL == true && visibleC == false){
+  				loupe.classList.remove('visible');
+  				croix.classList.add('visible');
+  			}else if (visibleL == false && visibleC == true){
+  				loupe.classList.add('visible');
+  				croix.classList.remove('visible');
   			}
   		}
 
