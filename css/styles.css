@@ -48,6 +48,8 @@ div.line {
 div.col1 {
 	display: table;
 	margin: 0 auto;
+	padding: 0 0 40px 0;
+	cursor: pointer;
 }
 
 div.title {
@@ -123,6 +125,8 @@ div.museum, div.monument {
 	border: solid #F2F2F2 1px;
 	border-radius: 5px;
 	margin: 0 auto 10px auto;
+	transition-property: all;
+	transition-duration: 0.3s;
 }
 
 div.eye-block > i {
@@ -142,12 +146,26 @@ div.museum:hover, div.monument:hover {
 div.active {
 	border: solid #C1272D 1px;
 	color: #C1272D;
+	transition-property: all;
+	transition-duration: 0.3s;
 }
 
 /* ----- // FORMULAIRE // ----- */
+div.row-form {
+	position: relative;
+}
+
 div.formulaire {
+	position: absolute;
+	top: 0;
 	color: #F2F2F2;
 	background-color: rgba(0,0,0,0.5);
+	transition-duration: 1s;
+}
+/* Afficher/Masquer le formulaire */
+div.deploy {
+	top: -560px;
+	transition-duration: 1s;
 }
 
 div.desc {
@@ -189,6 +207,7 @@ div.form-group > label {
 }
 
 button#btn_validation {
+	position: relative;
 	width: 60px;
 	height: 40px;
 	border: none;
@@ -201,14 +220,30 @@ button#btn_validation {
 button#btn_validation:hover {
 	background-color: #C1272D;
 }
-button#btn_validation:hover > span {
-	opacity: 0.2;
+button#btn_validation:hover > span.glyphicon-search {
+	opacity: 0.1;
+}
+button#btn_validation:hover > span.go {
+	opacity: 1;
 }
 
 button#btn_validation > span {
 	font-size: 24px;
 	line-height: 26px;
 	top: 0;
+	transition-duration: 0.3s;
+	transition-property: opacity;
+}
+
+button#btn_validation > span.go {
+	position: absolute;
+	font-family: 'Source Sans Pro';
+	font-weight: 600;
+	right: 25%;
+	top: 15%;
+	opacity: 0;
+	transition-duration: 0.3s;
+	transition-property: opacity;
 }
 
 /* ----- MEDIA QUERIES ----- */

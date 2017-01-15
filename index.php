@@ -12,7 +12,7 @@
 			<div class="row row-head"> <!-- Head [MD 3-6-3 SM/XS 12] -->
 				<!-- 1ère colonne Desktop / Mobile -->
 				<div class="col-md-4 col-sm-12 col-xs-12">
-					<div class="col1">
+					<div class="col1" onclick="deployForm();">
 						<div class="col-md-11 col-sm-10 col-xs-10 title">
 							<h1>Que cherchez-vous&nbsp;?</h1>
 						</div>
@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="row row-form">
-				<div class="col-md-4 col-sm-12 col-xs-12 formulaire">
+				<div id="deploy" class="col-md-4 col-sm-12 col-xs-12 formulaire">
 					<div class="desc">
 						<p>Remplir au moins un des champs pour effectuer une recherche.</p>
 					</div>
@@ -113,7 +113,7 @@
 	                        </div>
 
 	                    </div>
-	                    <button type="button" id="btn_validation" class="center-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>  
+	                    <button type="button" id="btn_validation" class="center-block" onclick="deployForm();"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="go">GO</span></button>  
 	                </form>
 				</div>
 			</div>
@@ -122,12 +122,31 @@
   	<script>
   		// Fonction pour ajouter ou supprimer une classe aux boutons
   		function triggerClass(element) {
-  			var test = element.classList.contains('active');
-  			if (test == false) {
+  			var test = element.classList.contains('active'); // Renvoie un booléen
+
+  			// Si c'est faux, on ajoute la classe "active", si c'est vrai on la retire
+  			if (test == false) { 
   				element.classList.add('active');
   			}else{
   				element.classList.remove('active');
   			}
   		}
+
+  		// Fonction pour déployer ou dissimuler le formulaire de recherche
+  		function deployForm() {
+  			var cible = document.getElementById("deploy");
+  			var deploy = cible.classList.contains('deploy');
+
+  			if (deploy == false) { 
+  				cible.style.zIndex = -1;
+  				// Temporisation légère permettant de prendre en compte la modification avant de lancer l'animation
+  				setTimeout(function() { cible.classList.add('deploy'); }, 200);
+  			}else{
+  				// Temporisation jusqu'à la fin de l'animation
+  				setTimeout(function() { cible.style.zIndex = 0; }, 900);
+  				cible.classList.remove('deploy');
+  			}
+  		}
+
   	</script>
 </html>
