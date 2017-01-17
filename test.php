@@ -1,9 +1,10 @@
 <html>
     <head>
         <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css"/>
-        <script type="text/javascript" src="js/jquery-3.1.1.min"></script>
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
     </head>
     <body>
+        
         <div class="container-fluid">
             <div class="container">
                 <form class="form-horizontal" id="form_test" >
@@ -67,6 +68,7 @@
         </div>
         
         <script>
+            
             jQuery("#btn_validation").click(function(e){
                var donnees = jQuery("#form_test").serialize();
                jQuery.ajax({
@@ -88,7 +90,7 @@
             function display_Result(data){
                 var parsed_data = jQuery.parseJSON(data);
                 var html_musees = "";
-                var html_monuments = "";
+                var html_monumen ts = "";
                 var musees = jQuery.parseJSON(parsed_data['musees']);
                 var monuments = jQuery.parseJSON(parsed_data['monuments']);
                 
@@ -110,7 +112,6 @@
                 });
                 jQuery("#result_monument").html(html_monuments);
             }
-            
         </script>
     </body>
 </html>
