@@ -117,6 +117,12 @@
 	                    <button type="button" id="btn_validation" class="center-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><span class="go">GO</span></button>  
 	                </form>
 				</div>
+				
+				<div class="row row-map">
+					<div id="map" class="col-md-12 col-sm-12 col-xs-12 map">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1389602.2167035895!2d5.076394165734842!3d47.13695675260623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1484678282852" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+					</div>
+				</div>
 			</div>
 		</div>
   	</body>
@@ -152,12 +158,8 @@
   			var deploy = cible.classList.contains('deploy');
 
   			if (deploy == false) { 
-  				cible.style.zIndex = -1;
-  				// Temporisation légère permettant de prendre en compte la modification avant de lancer l'animation
-  				setTimeout(function() { cible.classList.add('deploy'); }, 200);
+  				cible.classList.add('deploy');
   			}else{
-  				// Temporisation jusqu'à la fin de l'animation
-  				setTimeout(function() { cible.style.zIndex = 0; }, 900);
   				cible.classList.remove('deploy');
   			}
   		}

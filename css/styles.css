@@ -27,9 +27,15 @@ p {
 	font-weight: 300;
 }
 
+div.container-fluid {
+	padding: 0;
+}
+
 div.row-head {
+	position: relative;
 	color: #F2F2F2;
 	background-color: #333333;
+	z-index: 2;
 }
 
 div.col-md-3, div.col-md-4, div.col-md-5 {
@@ -121,6 +127,7 @@ div.block {
 	display: inline-block;
 	width: 90%;
 	margin: 0 auto;
+	padding-right: 15px;
 }
 
 div.eye-block, div.button-museum, div.button-monument {
@@ -171,10 +178,12 @@ div.row-form {
 
 div.formulaire {
 	position: absolute;
+	padding-left: 15px;
 	top: 0;
 	color: #F2F2F2;
 	background-color: rgba(0,0,0,0.5);
 	transition-duration: 1s;
+	z-index: 1;
 }
 /* Afficher/Masquer le formulaire */
 div.deploy {
@@ -260,6 +269,20 @@ button#btn_validation > span.go {
 	transition-property: opacity;
 }
 
+/* ----- MAP ----- */
+div.row-map {
+	position: relative;
+	width: 100%;
+	height: 85%;
+	margin: 0;
+	z-index: 0;
+}
+
+div.map {
+	position: absolute;
+}
+
+
 /* ----- MEDIA QUERIES ----- */
 
 /* ECRAN < 991 // TABLETTE // MOBILE */ 
@@ -269,6 +292,7 @@ button#btn_validation > span.go {
 		display: block;
 		color: #333333;
 		background-color: initial;
+		z-index: 2;
 	}
 
 	div.line {
@@ -306,7 +330,7 @@ button#btn_validation > span.go {
 		text-align: center;
 		border-bottom: solid #C1272D 5px;
 		cursor: pointer;
-		z-index: 1;
+		z-index: 3;
 	}
 
 	div.col1 > div.icon > span.glyphicon-search {
@@ -416,7 +440,7 @@ button#btn_validation > span.go {
 		background-color: #333333;
 		top: -300px;
 		left: 100%;
-		z-index: 0;
+		z-index: 2;
 	}
 
 	div.desc > p {
