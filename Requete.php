@@ -21,7 +21,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee."Nom like '".$_POST['nom']."' ";
+            $sql_musee = $sql_musee."Nom like '%".$_POST['nom']."%' ";
         }
     }
 
@@ -34,7 +34,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee."Commune like '".$_POST['commune']."' ";
+            $sql_musee = $sql_musee."Commune like '%".$_POST['commune']."%' ";
         }
     }
 
@@ -47,7 +47,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee."Adresse like '".$_POST['musee_adresse']."' ";
+            $sql_musee = $sql_musee."Adresse like '%".$_POST['musee_adresse']."%' ";
         }
     }
 
@@ -60,7 +60,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee+"CodePosal like '".$_POST['musee_cp']."' ";
+            $sql_musee = $sql_musee+"CodePosal like '%".$_POST['musee_cp']."%' ";
         }
     }
 
@@ -73,7 +73,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee+" Telephone like '".$_POST['musee_telephone']."' ";
+            $sql_musee = $sql_musee+" Telephone like '%".$_POST['musee_telephone']."%' ";
         }
     }
 
@@ -103,7 +103,7 @@
             else {
               $sql_monument = $sql_monument."AND ";
             }
-            $sql_monument = $sql_monument."designation like '".$_POST['nom']."' ";
+            $sql_monument = $sql_monument."designation like '%".$_POST['nom']."%' ";
         }
     }
 
@@ -116,7 +116,7 @@
             else{
                 $sql_monument = $sql_monument."AND ";
             }
-            $sql_monument = $sql_monument."commune like '".$_POST['commune']."' ";
+            $sql_monument = $sql_monument."commune like '%".$_POST['commune']."%' ";
         }
     }
 
@@ -142,7 +142,7 @@
             else{
                 $sql_monument = $sql_monument."AND ";
             }
-            $sql_monument = $sql_monument."siecle like '".$_POST['monument_sciecle']."' ";
+            $sql_monument = $sql_monument."siecle like '%".$_POST['monument_sciecle']."%' ";
         }
     }
 
@@ -155,7 +155,7 @@
             else{
                 $sql_monument = $sql_monument."AND ";
             }
-            $sql_monument = $sql_monument."categorie like '".$_POST['monument_categorie']."' ";
+            $sql_monument = $sql_monument."categorie like '%".$_POST['monument_categorie']."%' ";
         }
     }
     
@@ -173,5 +173,7 @@
     $json_result = json_encode($result);
 
     echo $json_result;
+    
+    //ajouter les % vers les likes.
 
 ?>

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css"/>
         <script type="text/javascript" src="js/jquery-3.1.1.min"></script>
     </head>
     <body>
@@ -86,13 +86,12 @@
             });
             
             function display_Result(data){
-                //console.log(data);
                 var parsed_data = jQuery.parseJSON(data);
                 var html_musees = "";
-                //console.log(parsed_data.musees+"\n");
+                var html_monuments = "";
                 var musees = jQuery.parseJSON(parsed_data['musees']);
-                //console.log(data);
-                //console.log(musees);
+                var monuments = jQuery.parseJSON(parsed_data['monuments']);
+                
                 jQuery.each(musees, function(key,value){
                     html_musees +"<p>";
                     jQuery.each(value, function (k, v){
@@ -101,6 +100,15 @@
                     html_musees += "</p><br/><br/>";
                 });
                 jQuery("#result_musee").html(html_musees);
+                
+                jQuery.each(monuments, function (key, value){
+                    html_monuments+="<p>";
+                    jQuery.each(value, function(k,v){
+                        html_monuments+=k+": "+v+"<br/>";
+                    });
+                    html_monuments+="</p><br/><br/>";
+                });
+                jQuery("#result_monument").html(html_monuments);
             }
             
         </script>
