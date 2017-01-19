@@ -21,6 +21,9 @@ body {
 	overflow: hidden;
 }
 
+#google_map{
+    height: 100%;
+}
 p {
 	margin: 0;
 	font-family: 'Source Sans Pro', sans-serif;

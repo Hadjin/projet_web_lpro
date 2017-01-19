@@ -82,12 +82,16 @@
 
     
     $sql_musee = $sql_musee.";";
-    //echo $sql_musee."|";
+    if ($first == false){
+        $musee_statement = $connexion->prepare($sql_musee);
+        $musee_statement->execute();
+        $musee_result = $musee_statement->fetchAll(PDO::FETCH_ASSOC);
+        $json_musee = json_encode($musee_result);
+    }
+    else{
+        $json_musee = json_encode("");
+    }
     
-    $musee_statement = $connexion->prepare($sql_musee);
-    $musee_statement->execute();
-    $musee_result = $musee_statement->fetchAll(PDO::FETCH_ASSOC);
-    $json_musee = json_encode($musee_result);
 
 
     //Création du sql pour les monuments.
@@ -160,13 +164,17 @@
     }
     
     $sql_monument = $sql_monument.";";
-    //echo $sql_monument."|";
     
-    $monument_statement = $connexion->prepare($sql_monument);
-    $monument_statement->execute();
-    $monument_result = $monument_statement->fetchAll(PDO::FETCH_ASSOC);
+    if ($first==false){
+        $monument_statement = $connexion->prepare($sql_monument);
+        $monument_statement->execute();
+        $monument_result = $monument_statement->fetchAll(PDO::FETCH_ASSOC);
+        $json_monument = json_encode($monument_result);    
+    }
+    else {
+        $json_monument = json_encode("");    
+    }
     
-    $json_monument = json_encode($monument_result);
 
     $result = Array("musees"=>$json_musee,"monuments"=>$json_monument);
 
