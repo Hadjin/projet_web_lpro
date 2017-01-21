@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Projet Musée Franche-Comté</title>
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
@@ -100,7 +101,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="musee_telephone">Téléphone</label>
-                                <input type="text" name="musee_telephone" id="musee_telephone" class="form-control" maxlength="10">    
+                                <input type="text" name="musee_telephone" id="musee_telephone" class="form-control" maxlength="14">    
                             </div>
                             
                         </div>
@@ -120,7 +121,7 @@
                                 </select>  
                             </div>
                             <div class="form-group">
-                                <label for="monument_sciecle">Siècle</label>
+                                <label for="monument_siecle">Siècle</label>
                                 <input type="text" name="monument_siecle" id="monument_siecle" class="form-control" maxlength="2">    
                             </div>
                             <div class="form-group">

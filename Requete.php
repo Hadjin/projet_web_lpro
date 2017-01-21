@@ -60,7 +60,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee+"CodePosal = ".$_POST['musee_cp']." ";
+            $sql_musee = $sql_musee+"CodePostal = ".$_POST['musee_cp']." ";
         }
     }
 
@@ -73,7 +73,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee+" Telephone like '%".$_POST['musee_telephone']."%' ";
+            $sql_musee = $sql_musee+"Telephone like '%".$_POST['musee_telephone']."%' ";
         }
     }
 
@@ -137,8 +137,8 @@
         }
     }
 
-    if (isset($_POST['monument_sciecle'])){
-        if (!empty($_POST['monument_sciecle'])){
+    if (isset($_POST['monument_siecle'])){
+        if (!empty($_POST['monument_siecle'])){
             if ($first){
                 $sql_monument = $sql_monument."WHERE ";
                 $first = false;
@@ -146,7 +146,7 @@
             else{
                 $sql_monument = $sql_monument."AND ";
             }
-            $sql_monument = $sql_monument."siecle like '%".$_POST['monument_sciecle']."%' ";
+            $sql_monument = $sql_monument."siècle like '%".$_POST['monument_siecle']."%' ";
         }
     }
 
@@ -159,7 +159,7 @@
             else{
                 $sql_monument = $sql_monument."AND ";
             }
-            $sql_monument = $sql_monument."categorie like '%".$_POST['monument_categorie']."%' ";
+            $sql_monument = $sql_monument."catégorie like '%".$_POST['monument_categorie']."%' ";
         }
     }
     
