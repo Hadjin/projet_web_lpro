@@ -60,7 +60,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee+"CodePosal like '%".$_POST['musee_cp']."%' ";
+            $sql_musee = $sql_musee+"CodePosal = ".$_POST['musee_cp']." ";
         }
     }
 
@@ -183,5 +183,4 @@
     echo $json_result;
     
     //ajouter les % vers les likes.
-
 ?>

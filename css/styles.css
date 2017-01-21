@@ -30,10 +30,6 @@ p {
 	font-weight: 300;
 }
 
-div.container-fluid {
-	padding: 0;
-}
-
 div.row-head {
 	position: relative;
 	color: #F2F2F2;
@@ -130,7 +126,6 @@ div.block {
 	display: inline-block;
 	width: 90%;
 	margin: 0 auto;
-	padding-right: 15px;
 }
 
 div.eye-block, div.button-museum, div.button-monument {
@@ -140,7 +135,7 @@ div.eye-block, div.button-museum, div.button-monument {
 }
 
 div.eye-block, div.button-museum, div.button-monument {
-	padding: 15px 0;
+	padding: 14px 0;
 }
 
 div.museum, div.monument {
@@ -175,16 +170,19 @@ div.active {
 }
 
 /* ----- // FORMULAIRE // ----- */
+div#icon {
+	display: none;
+}
+
 div.row-form {
 	position: relative;
 }
 
 div.formulaire {
 	position: absolute;
-	padding-left: 15px;
 	top: 0;
 	color: #F2F2F2;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.75);
 	transition-duration: 1s;
 	z-index: 1;
 }
@@ -237,8 +235,8 @@ button#btn_validation {
 	width: 60px;
 	height: 40px;
 	border: none;
-	border-top: solid #C1272D 2px;
-	border-bottom: solid #C1272D 2px;
+	border-top: solid #C1272D 3px;
+	border-bottom: solid #C1272D 3px;
 	background-color: transparent;
 	transition-duration: 0.3s;
 	transition-property: all;
@@ -281,10 +279,6 @@ div.row-map {
 	z-index: 0;
 }
 
-div.map {
-	position: absolute;
-}
-
 
 /* ----- MEDIA QUERIES ----- */
 
@@ -312,7 +306,7 @@ div.map {
 		cursor: default;
 	}
 
-	div.col1:hover > div.icon > span {
+	div.col1:hover > div#icon > span {
 		transform: none;
 		transition-property: color; /* Pour anéantir l'animation Hover du desktop */
 	}
@@ -323,9 +317,17 @@ div.map {
 		font-size: 32px;
 		text-align: center;
 	}
-
+	/* Icon desktop */
 	div.icon {
-		display: inline-block;
+		display: none;
+	}
+
+	/* Icon Mobile */
+	div#icon {
+		display: initial;
+		position: absolute;
+		top: -285px;
+		right: 0;
 		margin: 0;
 		color: #F2F2F2;
 		background-color: #333333;
@@ -336,14 +338,14 @@ div.map {
 		z-index: 3;
 	}
 
-	div.col1 > div.icon > span.glyphicon-search {
+	div#icon > span.glyphicon-search {
 		opacity: 0;
 		transform: rotateY(180deg);
 		transition-property: transform;
 		transition-duration: 0.3s;
 	}
 
-	div.col1 > div.icon > span.glyphicon-remove {
+	div#icon > span.glyphicon-remove {
 		display: block;
 		position: absolute;
 		top: 15px;
@@ -354,14 +356,14 @@ div.map {
 		transition-duration: 0.3s;
 	}
 	/* Pour switch Loupe/Croix */
-	div.col1 > div.icon > span.visible {
+	div#icon > span.visible {
 		opacity: 1;
 		transform: rotateY(0deg);
 		transition-property: transform;
 		transition-duration: 0.3s;
 	}
 
-	div.title, div.icon {
+	div.title, div#icon {
 		padding: 15px 0;
 	}
 
@@ -369,6 +371,10 @@ div.map {
 	div.user-search {
 		display: block;
 		padding: 15px 0 10px 30px;
+	}
+
+	div.top, div.bot {
+		width: 95%;
 	}
 
 /* ----- 3EME LIGNE ----- */
@@ -382,6 +388,7 @@ div.map {
 	div.eye-block {
 		color: #F2F2F2;
 		background-color: #333333;
+		padding: 10px 0;
 		float: right;
 	}
 
@@ -395,15 +402,15 @@ div.map {
 	}
 
 	div.button-monument > p {
-		margin: 10px 0 0 18%;
-		width: 72px;
-		font-size: 20px;
+		margin: 0 0 0 18%;
+		width: 60px;
+		font-size: 16px;
 	}
 
 	div.button-museum > p {
-		margin: 10px 0 0 60%;
-		width: 72px;
-		font-size: 20px;
+		margin: 0 0 0 60%;
+		width: 60px;
+		font-size: 16px;
 	}
 
 	div.museum {
@@ -416,13 +423,13 @@ div.map {
 
 	div.museum, div.monument {
 		border: none;
-		width: 72px;
-		height: 72px;
+		width: 60px;
+		height: 70px;
 	}
 
 	div.museum > i, div.monument > i {
-		font-size: 72px;
-		line-height: 74px;
+		font-size: 60px;
+		line-height: 60px;
 		color: #F2F2F2;
 		opacity: 0.2;
 		transition-property: all;
@@ -438,17 +445,15 @@ div.map {
 	}
 
 	/* ----- // FORMULAIRE // ----- */
-
 	div.formulaire {
 		background-color: #333333;
-		top: -300px;
+		top: -285px;
 		left: 100%;
 		z-index: 2;
 	}
 
 	div.desc > p {
-		height: 40px;
-		margin : 0 15% 0 0;
+		height: 30px;
 	}
 
 	div.form-commun {
@@ -466,8 +471,12 @@ div.map {
 /* ----- AJUSTEMENT FORMULAIRE ----- */
 @media (max-width: 490px) {
 
+	div#icon {
+		top: -305px;
+	}
+
 	div.formulaire {
-		top: -320px;
+		top: -305px;
 	}
 
 	div.form-commun {

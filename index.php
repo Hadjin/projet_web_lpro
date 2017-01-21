@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.min.css">
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/Function.js"></script>
+        <!-- Pour les listes -->
+        <?php include ("RequeteListe.php"); ?>
     </head>
         <body >
             
@@ -18,9 +20,9 @@
                         <div class="col-md-11 col-sm-10 col-xs-10 title">
                             <h1>Que cherchez-vous&nbsp;?</h1>
                         </div>
-                        <div id="icon" class="col-md-1 col-sm-2 col-xs-2 icon">
-                            <span id="loupe" class="glyphicon glyphicon-search visible" aria-hidden="true"></span>
-                            <span id="croix" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        <div class="col-md-1 col-sm-2 col-xs-2 icon">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         </div>
                     </div>
                 </div>
@@ -34,7 +36,7 @@
                         </div>
                         <div class="bot">
                             <i class="fa fa-fort-awesome" aria-hidden="true"></i>
-                            <p>Ce que l'utilisateur a saisit, statique</p>
+                            <p>Ce que l'utilisateur a saisit, statique, juste pour test si ça marche bien sur deux lignes...</p>
                         </div>
                     </div>
                 </div>
@@ -62,9 +64,13 @@
                 </div>
             </div>
             <div class="row row-form">
+            	<div id="icon" class="col-sm-2 col-xs-2">
+                    <span id="loupe" class="glyphicon glyphicon-search visible" aria-hidden="true"></span>
+                    <span id="croix" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </div>
                 <div id="deploy" class="col-md-4 col-sm-12 col-xs-12 formulaire">
                     <div class="desc">
-                        <p>Remplir au moins un des champs pour effectuer une recherche.</p>
+                        <p>Votre Recherche...</p>
                     </div>
                     <form id="form_test">
                         <!-- Partie commune au formulaire -->
@@ -104,7 +110,14 @@
                             <h2>+ Monument</h2>
                             <div class="form-group">
                                 <label for="monument_departement">Département</label>
-                                <input type="text" name="monument_departement" id="monument_departement" class="form-control">    
+                                <select type="text" name="monument_departement" id="monument_departement" class="form-control">
+                                	<option></option>
+                                	<script>
+                                		for (i=0;i<listeDep.length;i++) {
+											document.write('<option>'+listeDep[i][0]+'</option>');
+										}
+                                	</script>
+                                </select>  
                             </div>
                             <div class="form-group">
                                 <label for="monument_sciecle">Siècle</label>
