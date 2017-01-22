@@ -60,7 +60,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee+"CodePostal = ".$_POST['musee_cp']." ";
+            $sql_musee = $sql_musee."CodePostal = ".$_POST['musee_cp']." ";
         }
     }
 
@@ -73,7 +73,7 @@
             else{
                 $sql_musee = $sql_musee."AND ";
             }
-            $sql_musee = $sql_musee+"Telephone like '%".$_POST['musee_telephone']."%' ";
+            $sql_musee = $sql_musee."Telephone like '%".$_POST['musee_telephone']."%' ";
         }
     }
 
@@ -133,7 +133,7 @@
             else{
                 $sql_monument = $sql_monument."AND ";
             }
-            $sql_monument = $sql_monument."departement = ".$_POST['monument_departement']." ";
+            $sql_monument = $sql_monument."département = ".$_POST['monument_departement']." ";
         }
     }
 

@@ -33,11 +33,11 @@
                     <div class="user-search">
                         <div class="top">
                             <i class="fa fa-university" aria-hidden="true"></i>
-                            <p>Le musée de la Choucroute Garnie, Montbéliard, 25200</p>
+                            <p id="reqMusee"></p>
                         </div>
                         <div class="bot">
                             <i class="fa fa-fort-awesome" aria-hidden="true"></i>
-                            <p>Ce que l'utilisateur a saisit, statique, juste pour test si ça marche bien sur deux lignes...</p>
+                            <p id="reqMonument"></p>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="monument_categorie">Catégorie</label>
-                                <input type="text" name="monument_categorie" id="monument_categorie" class="form-control">    
+                                <select type="text" name="monument_categorie" id="monument_categorie" class="form-control">
+                                	<option></option>
+                                	<script>
+                                		for (i=0;i<listeCat.length;i++) {
+											document.write('<option>'+listeCat[i][0]+'</option>');
+										}
+                                	</script>
+                                </select>   
                             </div>
                             
                         </div>
@@ -154,6 +161,7 @@
         jQuery("#btn_validation").click(function(e){
             var donnees = jQuery("#form_test").serialize();
             console.log(donnees);
+
             jQuery.ajax({
                 url: "Requete.php",
                 type: 'POST',
@@ -168,6 +176,36 @@
                     
                 }
             }); 
+            // Traitement pour l'affichage de la requête
+            
+			var reg1 = new RegExp("(=&)", "g");
+			var reg2 = new RegExp("[=&]+", "g");
+
+			donnees = donnees.replace(reg1, "= &")
+			var tableau = donnees.split(reg2);
+			// Construction de l'affichage des critères de la requete Musée
+			var requeteMusee = "";
+			for (var i = 1; i < 10; i=i+2) {
+				if (tableau[i] == " ") {
+					requeteMusee = requeteMusee;
+				}else {
+					requeteMusee = requeteMusee + tableau[i] + ", ";
+				}
+			}
+			// Construction de l'affichage des critères de la requete Monument
+			var requeteMonument = "";
+			for (var j = 1; j < tableau.length; j=j+2) {
+				if (tableau[j] == " " || tableau[j] == "" || j == 5 || j == 7 || j == 9) {
+					requeteMonument = requeteMonument;
+				}else{
+					requeteMonument = requeteMonument + tableau[j] + ", ";
+				}
+			}
+
+			requeteMusee = requeteMusee.substring(0, requeteMusee.length-2);
+			requeteMonument = requeteMonument.substring(0, requeteMonument.length-2);
+			document.getElementById("reqMusee").innerHTML = requeteMusee;
+			document.getElementById("reqMonument").innerHTML = requeteMonument;
         });
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa5sLPMIAAoTdE_baKTOOgRGl-p14wjBs&callback=initMap"
