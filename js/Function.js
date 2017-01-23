@@ -1,7 +1,7 @@
 
 //https://developers.google.com/maps/documentation/javascript/examples/marker-remove?hl=fr
 var markers = [];
-
+var infowindows = [];
 function display_Result(data, map){
     deleteMarkers();
     var parsed_data = jQuery.parseJSON(data);
@@ -11,49 +11,110 @@ function display_Result(data, map){
     var monuments = jQuery.parseJSON(parsed_data['monuments']);
     console.log(musees);
     console.log(monuments);
+    
     jQuery.each(musees, function (key,value){
-       var position = new google.maps.LatLng(value.Latitude, value.Longitude);
-       var image = 'ico/musee.png';
-       var marker = new google.maps.Marker({
+        var position = new google.maps.LatLng(value.Latitude, value.Longitude);
+        var image = 'ico/musee.png';
+       
+        var contentString =  '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h1 id="firstHeading" class="firstHeading">'+value.Nom+'</h1>'+
+                '<div id="bodyContent">'+
+                '<p>' +value.DescriptifLong+
+                '</p>'+
+                '<p>Adresse : '+ value.Adresse+' '+ value.CodePostal+' '+ value.Commune+' '+
+                '</p>'+
+                '<p>Numéro Insee :' +value.NumInsee+
+                '</p>'+
+                '<p>Accés : ' + value.Acces+ 
+                '</p>'+
+                '<p>Contacts : Téléphone : ' +value.Telephone+'</br>'+
+                'Mail : '+value.Courriel + '</br>'+
+                'Site : '+value.SiteInternet+'</br>'+
+                'FaceBook : '+value.Facebook +'</br>'+
+                '</p>'+
+                '</div>'+
+                '</div>';
+        
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var marker = new google.maps.Marker({
             position: position,
             title: value.Nom,
             icon: image
-       });
-       markers.push(marker);
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+        markers.push(marker);
+        infowindows.push(infowindow);
     });
+    
     jQuery.each(monuments, function(key,value){
-       var position = new google.maps.LatLng(value.latitude, value.longitude);
-       var image = getIconeName(value.catégorie);
-       var marker = new google.maps.Marker({
-           position: position,
-           title: value.designation,
-           icon: image
-       });
-       markers.push(marker);
+        var position = new google.maps.LatLng(value.latitude, value.longitude);
+        var image = getIconeName(value.catégorie);
+        var photo = "";
+        var contentString =  '<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h1 id="firstHeading" class="firstHeading">'+value.designation+'</h1>'+
+                '<div id="bodyContent">'+
+                '<p>' +value.description+
+                '</p>'+
+                '<p>Catégorie : '+ value.catégorie+ ' Sciécle : '+value.siècle+
+                '</p>'+
+                '<p>Propriétaire : '+ value.propriétaire+
+                '</p>'+ 
+                '<p>Commune : '+ value.commune+
+                '</p>'+ 
+                '</div>'+
+                '</div>';
+        
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        
+        var marker = new google.maps.Marker({
+            position: position,
+            title: value.designation,
+            icon: image
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+        markers.push(marker);
+        infowindows.push(infowindow);
     });
     setMapOnAll(map);
 }
 
 function setMapOnAll(map) {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-  }
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+    }
 }
 
 // Removes the markers from the map, but keeps them in the array.
 function clearMarkers() {
-  setMapOnAll(null);
+    setMapOnAll(null);
+}
+
+function clearInfoWindows(){
+    infowindows = [];
 }
 
 // Shows any markers currently in the array.
 function showMarkers() {
-  setMapOnAll(map);
+    setMapOnAll(map);
 }
 
 // Deletes all markers in the array by removing references to them.
 function deleteMarkers() {
-  clearMarkers();
-  markers = [];
+    clearMarkers();
+    clearInfoWindows();
+    markers = [];
 }
 
 function getIconeName(name){
