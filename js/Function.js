@@ -21,19 +21,20 @@ function display_Result(data, map){
                 '</div>'+
                 '<h1 id="firstHeading" class="firstHeading">'+value.Nom+'</h1>'+
                 '<div id="bodyContent">'+
-                '<p>' +value.DescriptifLong+
-                '</p>'+
-                '<p>Adresse : '+ value.Adresse+' '+ value.CodePostal+' '+ value.Commune+' '+
-                '</p>'+
-                '<p>Numéro Insee :' +value.NumInsee+
-                '</p>'+
-                '<p>Accés : ' + value.Acces+ 
-                '</p>'+
-                '<p>Contacts : Téléphone : ' +value.Telephone+'</br>'+
-                'Mail : '+value.Courriel + '</br>'+
-                'Site : '+value.SiteInternet+'</br>'+
-                'FaceBook : '+value.Facebook +'</br>'+
-                '</p>'+
+                '<p class="descriptif">' +value.DescriptifLong+
+                '</p><div class="adresse">'+
+                '<i class="fa fa-map-marker" aria-hidden="true"></i><p>'+ value.Adresse+' '+ value.CodePostal+' '+ value.Commune+' '+
+                '</p></div><div class="insee">'+
+                '<p>Numéro Insee : ' +value.NumInsee+
+                '</p></div><div class="acces">'+
+                '<i class="fa fa-question-circle-o" aria-hidden="true"></i><p>Accès : ' + value.Acces+ 
+                '</p></div><div class="contact">'+
+                '<p class="c">Contacts : </p>'+
+                '<i class="fa fa-phone" aria-hidden="true"></i><p class="tel">'+value.Telephone+'</p>'+
+                '<i class="fa fa-envelope" aria-hidden="true"></i><p class="mail">'+value.Courriel+'</p><br/>'+
+                '<a href="http://'+value.SiteInternet+'" target="_blank" class="site"><i class="fa fa-at" aria-hidden="true"></i>   '+value.SiteInternet+'</a>'+
+                '<a href="https://'+value.Facebook+'" target="_blank" class="facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i>   '+value.Facebook+'</a>'+
+                '</p></div>'+
                 '</div>'+
                 '</div>';
         
@@ -61,14 +62,16 @@ function display_Result(data, map){
                 '</div>'+
                 '<h1 id="firstHeading" class="firstHeading">'+value.designation+'</h1>'+
                 '<div id="bodyContent">'+
-                '<p>' +value.description+
-                '</p>'+
-                '<p>Catégorie : '+ value.catégorie+ ' Sciécle : '+value.siècle+
-                '</p>'+
-                '<p>Propriétaire : '+ value.propriétaire+
-                '</p>'+ 
-                '<p>Commune : '+ value.commune+
-                '</p>'+ 
+                '<p class="descriptif2">' +value.description+
+                '</p><div class="categorie">'+
+                '<i class="fa fa-star" aria-hidden="true"></i><p class="ca">'+value.catégorie+
+                '</p></div><div class="siecle">'+
+                '<i class="fa fa-clock-o" aria-hidden="true"></i><p class="si">Siècle : '+value.siècle+
+                '</p></div><div class="proprietaire">'+
+                '<i class="fa fa-id-card" aria-hidden="true"></i><p class="pr">Propriétaire : '+value.propriétaire+
+                '</p></div><div class="commune">'+ 
+                '<i class="fa fa-map-marker" aria-hidden="true"></i><p class="co">'+value.commune+
+                '</p></div>'+ 
                 '</div>'+
                 '</div>';
         

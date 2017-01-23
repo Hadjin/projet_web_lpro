@@ -33,11 +33,11 @@
                     <div class="user-search">
                         <div class="top">
                             <i class="fa fa-university" aria-hidden="true"></i>
-                            <p id="reqMusee"></p>
+                            <p id="reqMusee">Votre recherche pour les musées.</p>
                         </div>
                         <div class="bot">
                             <i class="fa fa-fort-awesome" aria-hidden="true"></i>
-                            <p id="reqMonument"></p>
+                            <p id="reqMonument">Votre recherche pour les monuments.</p>
                         </div>
                     </div>
                 </div>

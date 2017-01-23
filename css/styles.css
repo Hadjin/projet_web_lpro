@@ -279,6 +279,110 @@ div.row-map {
 	z-index: 0;
 }
 
+/* ----- INFOBULLES ----- */
+h1.firstHeading {
+	font-size: 24px;
+	line-height: 26px;
+}
+
+p.descriptif {
+	margin: 0 0 20px 0;
+}
+
+div.adresse {
+	width: 70%;
+}
+div.adresse > i {
+	font-size: 18px;
+	margin-right: 15px;
+}
+div.adresse > p {
+	font-size: 15px;
+}
+div.adresse > i, div.adresse > p {
+	display: inline-block;
+}
+
+div.insee {
+	padding-left: 5%;
+	border-left: solid #333333 2px;
+	font-size: 15px;
+}
+
+div.adresse, div.insee {
+	display: inline-block;
+}
+
+div.acces {
+	margin-top: 5px;
+}
+div.acces > i {
+	display: inline-block;
+	font-size: 18px;
+	line-height: 20px;
+	margin-right: 10px;
+}
+div.acces > p {
+	display: inline-block;
+	font-size: 15px;
+	line-height: 17px;
+}
+
+div.contact {
+	font-size: 15px;
+	line-height: 17px;
+	padding-top: 5px;
+	margin-top: 5px;
+	border-top: solid #333333 2px;
+}
+div.contact > p.c {
+	margin-bottom: 5px;
+}
+div.contact > i {
+	display: inline-block;
+	font-size: 18px;
+	line-height: 20px;
+	padding-right: 10px;
+}
+
+a.site, a.facebook {
+	text-decoration: none;
+}
+a.site > i, a.facebook > i {
+	font-size: 18px;
+	line-height: 20px;
+}
+p.tel, p.mail, a.site {
+	margin-right: 10px;
+}
+p.tel, p.mail, a.site, a.facebook {
+	display: inline-block;
+}
+
+p.descriptif2 {
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	border-bottom: solid #333333 2px;
+}
+
+div.categorie, div.siecle, div.proprietaire, div.commune {
+	font-size: 15px;
+	line-height: 17px;
+}
+div.categorie > i, div.siecle > i, div.proprietaire > i, div.commune > i {
+	display: inline-block;
+	width: 5%;
+	font-size: 18px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: top;
+	margin-right: 10px;
+}
+p.ca, p.si, p.pr, p.co {
+	display: inline-block;
+	height: 34px;
+	width: 90%;
+}
 
 /* ----- MEDIA QUERIES ----- */
 
