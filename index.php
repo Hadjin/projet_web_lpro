@@ -160,8 +160,9 @@
         
         jQuery("#btn_validation").click(function(e){
             var donnees = jQuery("#form_test").serialize();
+            donnees = decodeURIComponent(donnees);
             console.log(donnees);
-
+            
             jQuery.ajax({
                 url: "Requete.php",
                 type: 'POST',
