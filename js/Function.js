@@ -15,7 +15,7 @@ function display_Result(data, map){
     jQuery.each(musees, function (key,value){
         var position = new google.maps.LatLng(value.Latitude, value.Longitude);
         var image = 'ico/musee.png';
-       
+        // Pour l'infobulle
         var contentString =  '<div id="content">'+
                 '<div id="siteNotice">'+
                 '</div>'+
@@ -57,6 +57,7 @@ function display_Result(data, map){
         var position = new google.maps.LatLng(value.latitude, value.longitude);
         var image = getIconeName(value.catégorie);
         var photo = "";
+        // Pour l'infobulle
         var contentString =  '<div id="content">'+
                 '<div id="siteNotice">'+
                 '</div>'+

@@ -158,9 +158,6 @@ div.museum > i, div.monument > i {
 	line-height: 50px;
 }
 
-div.museum:hover, div.monument:hover {
-	cursor: pointer;
-}
 /* BOUTON ACTIF */
 div.active {
 	border: solid #C1272D 1px;

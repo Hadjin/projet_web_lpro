@@ -50,13 +50,13 @@
                             <p>Affichage<br/>sur la Carte</p>
                         </div>
                         <div class="col-md-4 col-sm-5 col-xs-5 button-museum">
-                            <div class="museum" onclick="triggerClass(this)">
+                            <div id="museum" class="museum">
                                 <i class="fa fa-university" aria-hidden="true"></i>
                             </div>
                             <p>Musée</p>
                         </div>
                         <div class="col-md-4 col-sm-5 col-xs-5 button-monument">
-                            <div class="monument" onclick="triggerClass(this)">
+                            <div id="monument" class="monument">
                                 <i class="fa fa-fort-awesome" aria-hidden="true"></i>
                             </div>
                             <p>Monument</p>
@@ -203,6 +203,16 @@
 				}
 			}
 
+			if (requeteMusee != "") {
+				document.getElementById("museum").classList.add('active');
+			}else{
+				document.getElementById("museum").classList.remove('active');
+			}
+			if (requeteMonument != "") {
+				document.getElementById("monument").classList.add('active');
+			}else{
+				document.getElementById("monument").classList.remove('active');
+			}
 			requeteMusee = requeteMusee.substring(0, requeteMusee.length-2);
 			requeteMonument = requeteMonument.substring(0, requeteMonument.length-2);
 			document.getElementById("reqMusee").innerHTML = requeteMusee;
@@ -212,19 +222,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa5sLPMIAAoTdE_baKTOOgRGl-p14wjBs&callback=initMap"
     async defer></script>
     <script>
-        
-        // Fonction pour ajouter ou supprimer une classe aux boutons
-        function triggerClass(element) {
-            var test = element.classList.contains('active'); // Renvoie un booléen
-            
-            // Si c'est faux, on ajoute la classe "active", si c'est vrai on la retire
-            if (test == false) { 
-                element.classList.add('active');
-            }else{
-                element.classList.remove('active');
-            }
-        }
-        
         var largeur = window.innerWidth; // Taille de la fenêtre
         // En fonction de la taille de la fenêtre au chargement de la page, on ajoute des écouteurs d'événement différents pour le déploiement du formulaire
         if (largeur >= 992) {
