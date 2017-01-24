@@ -362,6 +362,11 @@ p.descriptif2 {
 	border-bottom: solid #333333 2px;
 }
 
+div.info {
+	display: inline-block;
+	width: 80%;
+}
+
 div.categorie, div.siecle, div.proprietaire, div.commune {
 	font-size: 15px;
 	line-height: 17px;
@@ -379,6 +384,11 @@ p.ca, p.si, p.pr, p.co {
 	display: inline-block;
 	height: 34px;
 	width: 90%;
+}
+
+div.bodyContent > img {
+	display: inline-block;
+	width: 20%;
 }
 
 /* ----- MEDIA QUERIES ----- */

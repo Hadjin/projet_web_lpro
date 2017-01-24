@@ -56,7 +56,8 @@ function display_Result(data, map){
     jQuery.each(monuments, function(key,value){
         var position = new google.maps.LatLng(value.latitude, value.longitude);
         var image = getIconeName(value.catégorie);
-        var photo = "";
+        var photo = "http://www.monumentum.fr/photo/39/"+value.REFERENCE+".jpg";
+        photo = photo.toLowerCase();
         // Pour l'infobulle
         var contentString =  '<div id="content">'+
                 '<div id="siteNotice">'+
@@ -64,7 +65,7 @@ function display_Result(data, map){
                 '<h1 id="firstHeading" class="firstHeading">'+value.designation+'</h1>'+
                 '<div id="bodyContent">'+
                 '<p class="descriptif2">' +value.description+
-                '</p><div class="categorie">'+
+                '</p><div class="info"><div class="categorie">'+
                 '<i class="fa fa-star" aria-hidden="true"></i><p class="ca">'+value.catégorie+
                 '</p></div><div class="siecle">'+
                 '<i class="fa fa-clock-o" aria-hidden="true"></i><p class="si">Siècle : '+value.siècle+
@@ -72,7 +73,8 @@ function display_Result(data, map){
                 '<i class="fa fa-id-card" aria-hidden="true"></i><p class="pr">Propriétaire : '+value.propriétaire+
                 '</p></div><div class="commune">'+ 
                 '<i class="fa fa-map-marker" aria-hidden="true"></i><p class="co">'+value.commune+
-                '</p></div>'+ 
+                '</p></div></div>'+ 
+                '<img src='+photo+' width="20%" style="display: inline-block; vertical-align: top;">'+
                 '</div>'+
                 '</div>';
         
